@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class LoopingPlatform : MonoBehaviour
 {
+
     private float startLocation;
     private float endLocation;
     private Vector3 direction = Vector3.right;
@@ -24,6 +25,6 @@ public class EnemyMovement : MonoBehaviour
         transform.Translate(direction * speed * Time.deltaTime);
 
         if (transform.position.x >= endLocation) { direction = Vector3.left; }
-        else if (transform.position.x <= startLocation) { direction = Vector3.right; }
+        else if(transform.position.x <= startLocation) { direction = Vector3.right; }
     }
 }
