@@ -27,4 +27,6 @@ public class LoopingPlatform : MonoBehaviour
         if (transform.position.x >= endLocation) { direction = Vector3.left; }
         else if(transform.position.x <= startLocation) { direction = Vector3.right; }
     }
+
+   
 }

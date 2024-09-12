@@ -26,4 +26,13 @@ public class EnemyMovement : MonoBehaviour
         if (transform.position.x >= endLocation) { direction = Vector3.left; }
         else if (transform.position.x <= startLocation) { direction = Vector3.right; }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyWall"))
+        {
+            if (direction == Vector3.right) { direction = Vector3.left; }
+            else if (direction == Vector3.left) { direction = Vector3.right; }
+        }
+    }
 }

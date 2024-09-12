@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI pointsText;
 
     private int currentPoints = 0;
+    public int currentHealth;
 
     private void Awake()
     {
@@ -22,11 +24,24 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        currentHealth = 5;
+    }
+
+    public void Update()
+    {
+        if ((currentPoints == 25) || currentHealth == 0)
+        {
+
+            SceneManager.LoadScene(0);
+            currentPoints = 0;
+
+        }
+        pointsText.text = "x" + currentPoints + " Player Health: " + currentHealth;
     }
 
     public void IncreasePoints(int points)
     {
         currentPoints += points;
-        pointsText.text = "x" + currentPoints;
+        pointsText.text = "x" + currentPoints + " Player Health: " + currentHealth;
     }
 }
